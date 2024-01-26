@@ -97,7 +97,8 @@ const Stories = (props: Props) => {
                       opacity: 1,
                       transition: { duration: 0.6, delay: 0.7 },
                     }}
-                    className="relative cursor-pointer" key={index}
+                    key={index}
+                    className="relative cursor-pointer"
                   >
                     <Image src={img} alt="stories" className="rounded-[10px]" />
                     <div className="absolute bottom-3 bg-black/80 right-3 left-3 px-4 py-6 text-white rounded-[10px]">
