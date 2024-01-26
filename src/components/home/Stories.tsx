@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import React from "react";
 import img from "../../../public/about.jpg";
@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -31,9 +32,10 @@ const storiesData: { name: string; content: string; time: string }[] = [
       "maxime reiciendis hic eum sit amet consectetur Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quia aliquam iure pariatur! Ratione aliquam, maxime reiciendis hic eum",
   },
   {
-    name: 'Home for all',
-    time: '10',
-    content: 'Dolorem quia aliquam iure pariatur! Ratione aliquam, maxime reiciendis hic eum Dolorem quia aliquam iure pariatur! Ratione aliquam, maxime reiciendis hic eum',
+    name: "Home for all",
+    time: "10",
+    content:
+      "Dolorem quia aliquam iure pariatur! Ratione aliquam, maxime reiciendis hic eum Dolorem quia aliquam iure pariatur! Ratione aliquam, maxime reiciendis hic eum",
   },
 ];
 
@@ -42,15 +44,31 @@ const Stories = (props: Props) => {
     <>
       <section className="md:w-[70%] w-[90%] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <h1 className="font-bold leading-tight tracking-wide capitalize text-[2.25rem]">
+          <motion.h1
+            initial={{ x: -30, opacity: 0 }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+              transition: { duration: 0.5, delay: 0.5 },
+            }}
+            className="font-bold leading-tight tracking-wide capitalize text-[2.25rem]"
+          >
             Discover the latest <br />
             real estate stories{" "}
-          </h1>
-          <p className="test-md  text-gray-500">
+          </motion.h1>
+          <motion.p
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+              transition: { duration: 0.5, delay: 0.5 },
+            }}
+            className="test-md  text-gray-500"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
             quia aliquam iure pariatur! Ratione aliquam, maxime reiciendis hic
             eum reprehenderit?
-          </p>
+          </motion.p>
         </div>
 
         <div className="mt-8">
@@ -60,20 +78,27 @@ const Stories = (props: Props) => {
               spaceBetween={40}
               slidesPerView={3}
               pagination={{ clickable: true }}
-              breakpoints={
-               { 900: {
-                slidesPerView: 3,
-                spaceBetween: 20
-
+              breakpoints={{
+                900: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
                 },
-              400: {
-                slidesPerView: 1,
+                400: {
+                  slidesPerView: 1,
+                },
               }}
-              }
             >
               {storiesData.map((item, index) => (
                 <SwiperSlide>
-                  <div className="relative cursor-pointer">
+                  <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{
+                      y: 0,
+                      opacity: 1,
+                      transition: { duration: 0.6, delay: 0.7 },
+                    }}
+                    className="relative cursor-pointer"
+                  >
                     <Image src={img} alt="stories" className="rounded-[10px]" />
                     <div className="absolute bottom-3 bg-black/80 right-3 left-3 px-4 py-6 text-white rounded-[10px]">
                       <p className="text-gray-300 capitalize text-sm underline">
@@ -86,7 +111,7 @@ const Stories = (props: Props) => {
                         {item.time} hours ago
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </SwiperSlide>
               ))}
             </Swiper>

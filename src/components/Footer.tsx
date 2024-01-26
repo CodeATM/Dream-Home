@@ -1,13 +1,23 @@
+"use client";
 import React from "react";
 import { FiHome } from "react-icons/fi";
 import Links from "./Links";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const Footer = (props: Props) => {
   return (
     <footer className="pt-24 pb-12 md:w-[70%] w-[90%] mx-auto">
-      <div className="flex flex-col md:flex-row w-full px-6 md:container gap-4">
+      <motion.div
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+          transition: { duration: 0.6, delay: 0.7 },
+        }}
+        className="flex flex-col md:flex-row w-full px-6 md:container gap-4"
+      >
         <div className="logo md:w-[30%] w-full">
           {" "}
           <h1 className="flex gap-2 font-semibold text-xl items-center">
@@ -74,7 +84,7 @@ const Footer = (props: Props) => {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
       <hr className="w-[95%] mt-6 mx-auto text-gray-800" />
 
       <Links />

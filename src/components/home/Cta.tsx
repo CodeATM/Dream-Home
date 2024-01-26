@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -7,7 +9,15 @@ const Cta = (props: Props) => {
     <>
       <section className="bg-gray-950 py-12">
         <div className="md:container">
-          <div className="justify-center flex flex-col text-white items-center gap-4">
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+              transition: { duration: 0.6, delay: 0.7 },
+            }}
+            className="justify-center flex flex-col text-white items-center gap-4"
+          >
             <p className="capitalize text-gray-400 font-semibold tracking-wide text-[17px]">
               No Unnecessary Delays
             </p>
@@ -31,7 +41,7 @@ const Cta = (props: Props) => {
               Join the <span className="font-semibold text-white">1000+</span>{" "}
               to enjoy affordable housing
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
