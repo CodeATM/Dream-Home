@@ -5,11 +5,8 @@ import { useRouter } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
-type filterProps = {
-  onFilter: (filter: { location: string; rooms: Number }) => void;
-};
 
-const Search = ({ onFilter }: filterProps) => {
+const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [location, setLocation] = useState("");
   const [rooms, setRooms] = useState("");
