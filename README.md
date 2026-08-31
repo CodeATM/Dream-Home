@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Meridian — Now App
+
+A premium real estate / property management web application built with **Next.js 16** (App Router), **React 19**, **TypeScript** and **Tailwind CSS**.
+
+## Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router, RSC, Turbopack)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) v3
+- [Framer Motion](https://www.framer.com/motion/) — animations
+- [Leaflet](https://leafletjs.com/) + `react-leaflet` — maps
+- [Zustand](https://zustand-demo.pmnd.rs/) — client state (favorites, compare, saved searches, auth)
+- [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) — forms & validation
+- [Radix UI](https://www.radix-ui.com/) primitives, [cmdk](https://github.com/pacocoursey/cmdk), [Swiper](https://swiperjs.com/)
+- [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) + `gray-matter` — content (guides/articles)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Command            | Description                        |
+| ------------------ | ---------------------------------- |
+| `npm run dev`      | Start the development server       |
+| `npm run build`    | Production build                    |
+| `npm run start`    | Serve the production build         |
+| `npm run lint`     | Run ESLint                         |
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Buy / Rent search with advanced filtering, sorting, saving and pagination
+- Property detail pages with gallery, mortgage/rent calculators and tour scheduling
+- Interactive Leaflet maps with clustered pins
+- Compare properties, saved homes, and saved search management
+- Agent directory and neighborhood guides with per-city pages
+- Resources / articles powered by local MDX content
+- Dashboard, contact forms, and a full sign-in / sign-up flow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+src/
+├── app/            # Routes (App Router)
+├── components/
+│   ├── ui/         # Shadcn-style primitives
+│   ├── property/   # Cards, listing browser, calculators
+│   ├── map/        # Leaflet map panels
+│   ├── forms/      # Auth, contact, lead, valuation
+│   └── layout/     # Navbar, footer, app shell
+├── data/           # Properties, agents, cities, testimonials
+├── content/        # MDX resources
+└── lib/            # Utilities, stores, formatting
+```
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy is the [Vercel Platform](https://vercel.com/new).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> Images are served from `images.unsplash.com` and require that hostname to be
+> allowed in the `next.config.js` `images.remotePatterns` for any deployment.
